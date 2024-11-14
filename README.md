@@ -29,19 +29,98 @@ https://github.com/user-attachments/assets/ec1c2411-51de-440f-be98-3a7ccd50962f
 https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
 
 ## 💡 주요 기능
-+ 파일 생성 및 수정시 썸네일 삭제 및 생성
++ 메시지 처리
   <details>
    <summary>코드 보기(펼치기/접기)</summary>
    
-   생성 메소드
+  Server Socket Recevier
+  
    ```
-
-
+   // message 받기
+   String receivedMessage = client.getDataInputStream().readUTF();
+   // 메시지 파싱
+   String receivedCommand = messageParser.parseCommand(receivedMessage);
+   String receivedData = messageParser.parseData(receivedMessage);
+   CommandType commandType = CommandType.fromString(receivedCommand);
+   // 커맨드 실행
+   Command command = commandFactory.createCommand(client, commandType);
+   command.execute(receivedData);
    ```
-
-   [ 전체 코드]()
+   
+  Command Factory
+  
+    ```
+    /**
+     * commandType에 맞는 Command 생성
+     *
+     * @param client data를 보낸 client
+     * @param commandType commandType
+     * @return command
+     */
+    public Command createCommand(Client client, CommandType commandType) {
+        switch (commandType) {
+            case CREATE_ROOM -> {
+                return new CreateRoomCommand(client);
+            }
+    ...
+    ```
+  Command Interface
+    ```
+    /**
+     * Command Interface
+     *
+     * @param <T> data Type
+     */
+    public interface Command<T> {
+        void execute(T data);
+    }
+    ```
+   [전체 코드]()
+  
   </details>
-+ 파일 생성 및 수정시 썸네일 삭제 및 생성
+  
++ 객체 데이터 전송
+  <details>
+   <summary>코드 보기(펼치기/접기)</summary>
+   
+   Room Class
+
+  ```
+    /**
+     * Room Dto
+     */
+     public class Room implements Serializable {
+       private static final long serialVersionUID = 1L;
+       ...
+   ```
+
+  객체화 메소드
+
+  ```
+    private byte[] serializeRooms(List<Room> rooms) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(rooms);
+        objectOutputStream.flush();
+
+        return byteArrayOutputStream.toByteArray();
+    }
+    ...
+  ```
+  
+  데이터 보내기
+
+  ```
+    dataOutputStream.writeUTF("ROOM_LIST");
+    dataOutputStream.writeInt(roomsByteArray.length);
+    dataOutputStream.write(roomsByteArray);
+
+    ...
+  ```
+   [전체 코드]()
+  </details>
+
+  + 객체 데이터 전송
   <details>
    <summary>코드 보기(펼치기/접기)</summary>
    
