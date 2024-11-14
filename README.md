@@ -9,15 +9,25 @@
 
 ## 📺 화면
   + **이름 입력**
-    
-  + **채팅방 이름 입력**
+
+https://github.com/user-attachments/assets/f020c256-1748-4003-a1ab-371595e2af64
+
+  + **채팅방 생성**
+
+https://github.com/user-attachments/assets/79b2be88-8a85-46dd-bb79-50b31871a773
 
   + **채팅방 리스트 출력**
   
+https://github.com/user-attachments/assets/49ab4494-b099-49e5-ba48-c8f094ef8246
+
   + **채팅방 입장 후 채팅**
   
-  + **종료**
+https://github.com/user-attachments/assets/ec1c2411-51de-440f-be98-3a7ccd50962f
+
+  + **채팅방 나가기**
   
+https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
+
 ## 💡 주요 기능
 + 파일 생성 및 수정시 썸네일 삭제 및 생성
   <details>
@@ -45,7 +55,6 @@
   </details>
   
 ## 🛠 기술 스택
-### 🔧 관리자 페이지(MPA)
 ![Java](https://img.shields.io/badge/java-005F0F?style=for-the-badge&logo=java&logoColor=white)
 
 
