@@ -120,7 +120,7 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
    [전체 코드]()
   </details>
 
-  + 객체 데이터 전송
++ 객체 데이터 전송
   <details>
    <summary>코드 보기(펼치기/접기)</summary>
    
