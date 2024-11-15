@@ -120,13 +120,19 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
    [전체 코드]()
   </details>
 
-+ 객체 데이터 전송
++ 채팅방과 참여자 저장소 관리
   <details>
    <summary>코드 보기(펼치기/접기)</summary>
    
-   생성 메소드
+   RoomRepository 멤버변수
    ```
-
+    // Room 관리 repo
+    private final static ConcurrentHashMap<Long, Room> store = new ConcurrentHashMap<>();
+    // 참여자 관리 repo
+    private final static ConcurrentHashMap<Room, Set<Client>> participantMap = new ConcurrentHashMap<>();
+    // client room mapping repo
+    private final static ConcurrentHashMap<Client, Room> clientRoomMap = new ConcurrentHashMap<>();
+   ...
 
    ```
 
