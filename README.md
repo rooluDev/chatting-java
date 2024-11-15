@@ -75,7 +75,8 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
         void execute(T data);
     }
     ```
-   [전체 코드]()
+  [Server Socket Receiver전체 코드](https://github.com/rooluDev/chatting-java/blob/main/server/src/socket/SocketReceiver.java)
+  [Command Factory 전체 코드](https://github.com/rooluDev/chatting-java/blob/main/server/src/factory/CommandFactory.java)
   
   </details>
   
@@ -117,7 +118,7 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
 
     ...
   ```
-   [전체 코드]()
+  [RoomListCommand 전체 코드](https://github.com/rooluDev/chatting-java/blob/main/server/src/command/RoomListCommand.java)
   </details>
 
 + 채팅방과 참여자 저장소 관리
@@ -136,7 +137,35 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
 
    ```
 
-   [ 전체 코드]()
+  [RoomRepository 전체 코드](https://github.com/rooluDev/chatting-java/blob/main/server/src/repository/RoomRepository.java)
+  </details>
+
++ Thread 생명주기 관리
+  <details>
+   <summary>코드 보기(펼치기/접기)</summary>
+    
+    채팅방 입장 시 Main wait
+   
+    ```
+    public synchronized void createRoom() throws InterruptedException, IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("채팅방 이름 입력: ");
+        String roomName = scanner.nextLine();
+        sendMessage("CREATE_ROOM " + roomName);
+
+        this.wait();
+    }
+   ```
+
+   채팅방 나갈 시 Thread stop & notify
+   
+   ```
+   public synchronized void notifyToMain(){
+        this.notify();
+    }
+   ```
+
+  [ChattingService 전체 코드](https://github.com/rooluDev/chatting-java/blob/main/client/src/service/ChattingService.java)
   </details>
   
 ## 🛠 기술 스택
