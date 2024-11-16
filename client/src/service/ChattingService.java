@@ -1,5 +1,6 @@
 package service;
 
+import command.CommandType;
 import socket.SocketSender;
 
 import java.io.DataOutputStream;
@@ -41,7 +42,7 @@ public class ChattingService {
         Scanner scanner = new Scanner(System.in);
         System.out.print("채팅방 이름 입력: ");
         String roomName = scanner.nextLine();
-        sendMessage("CREATE_ROOM " + roomName);
+        sendMessage(CommandType.CREATE_ROOM_SUCCESS.getCommand() + " " + roomName);
 
         this.wait();
     }
@@ -63,7 +64,7 @@ public class ChattingService {
      * @param roomId 채팅방 sequence
      * @throws IOException IOException
      */
-    public void joinRoom(Long roomId) throws IOException{
+    public void joinRoom(Long roomId) throws IOException {
         sendMessage("JOIN_ROOM " + roomId);
     }
 
@@ -83,14 +84,17 @@ public class ChattingService {
         clientSender.start();
     }
 
-    public void exit(){
-        // TODO : EXIT
+    /**
+     * 프로그램 종료
+     */
+    public void exit() throws IOException {
+//        sendMessage("CLIENT_SIGN_OUT" + );
     }
 
     /**
      * Main Thread에게 알리기
      */
-    public synchronized void notifyToMain(){
+    public synchronized void notifyToMain() {
         this.notify();
     }
 
