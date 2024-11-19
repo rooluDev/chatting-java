@@ -1,11 +1,19 @@
 # 📋 채팅 프로그램
 
 ## 📝 프로젝트 개요
-이 프로젝트는 채팅 프로그램을 구현하는 걸 목표로 합니다.
+이 프로젝트는 채팅 프로그램을 구현하는 것을 목표로 합니다.
 
-이름을 설정해서 채팅방에 입장할 수 있고 채팅방도 생성할 수 있습니다.
+이름을 설정하여 채팅방에 입장할 수 있고, 채팅방도 생성할 수 있습니다.
 
-외부 라이브러리를 사용하지 않고 Java Built-in 라이브러리만 사용하여 TCP-Socket 연결을 통해 접속을 합니다.
+외부 라이브러리를 사용하지 않고 Java 내장 라이브러리만 사용하여 TCP 소켓 연결을 통해 접속합니다.
+
+디자인 패턴 중 Command 패턴과 Factory 패턴을 사용하여 다양한 메시지를 처리했습니다.
+
+## 💻 시퀀스 다이어그램
+
+
+## 🛠 기술 스택
+![Java](https://img.shields.io/badge/java-005F0F?style=for-the-badge&logo=java&logoColor=white)
 
 ## 📺 화면
   + **이름 입력**
@@ -168,7 +176,4 @@ https://github.com/user-attachments/assets/5596323d-6923-45e0-92a4-6426b9e24fb6
   [ChattingService 전체 코드](https://github.com/rooluDev/chatting-java/blob/main/client/src/service/ChattingService.java)
   </details>
   
-## 🛠 기술 스택
-![Java](https://img.shields.io/badge/java-005F0F?style=for-the-badge&logo=java&logoColor=white)
-
 
