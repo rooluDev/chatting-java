@@ -7,10 +7,7 @@
 
 외부 라이브러리를 사용하지 않고 Java 내장 라이브러리만 사용하여 TCP 소켓 연결을 통해 접속합니다.
 
-디자인 패턴 중 Command 패턴과 Factory 패턴을 사용하여 다양한 메시지를 처리했습니다.
-
-## 💻 시퀀스 다이어그램
-
+다양한 메시지 처리는 Command패턴을 사용해 처리합니다
 
 ## 🛠 기술 스택
 ![Java](https://img.shields.io/badge/java-005F0F?style=for-the-badge&logo=java&logoColor=white)
